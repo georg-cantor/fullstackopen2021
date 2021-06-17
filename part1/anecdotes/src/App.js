@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
 
+const Header = ({header}) => {
+  return (
+    <div>
+      <h1>{header}</h1>
+    </div>
+  )
+}
+
 const Button = ({handleClick, text}) => {
   return (
     <div>
@@ -24,6 +32,7 @@ const App = () => {
         useState(Array.apply(null, new Array(anecdotes.length)).map(Number.prototype.valueOf,0))
   const [selected, setSelected] = useState(0)
   const getRandomInt = (max) => Math.floor(Math.random() * max)
+  const getLargestIdx = (arr) => arr.indexOf(Math.max(...arr))
   const handleRandomSelect = () => setSelected(getRandomInt(anecdotes.length))
   const handleVote = () => {
     const copy = [...points]
@@ -35,11 +44,16 @@ const App = () => {
 
   return (
     <div>
+      <Header header="Anecdote of the day" />
       {anecdotes[selected]}
       <br />
       <p>has {points[selected]} votes</p>
       <Button handleClick={handleVote} text="vote" />
       <Button handleClick={handleRandomSelect} text="next anecdote"/>
+      <Header header="Anecdote with most votes" />
+      {anecdotes[getLargestIdx(points)]}
+      <br />
+      <p>has {points[getLargestIdx(points)]} votes</p>
     </div>
   )
 }
