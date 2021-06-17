@@ -30,6 +30,18 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
+  const calcAll = (good, neutral, bad) => good + neutral + bad
+  const calcAvg = (good, neutral, bad) => {
+    const all = calcAll(good, neutral, bad)
+    return (all === 0) ? 0 : (good-bad)/all
+  }
+  const calcPos = (good, neutral, bad) => {
+    const all = calcAll(good, neutral, bad)
+    if (all === 0) return "0 %"
+    const positiveRatio = good/all 
+    return "" + positiveRatio*100 + " %"
+  }
+
   const handleGoodFeedback = () => setGood(good + 1)
   const handleNeutralFeedback = () => setNeutral(neutral + 1)
   const handleBadFeedback = () => setBad(bad + 1)
@@ -53,6 +65,9 @@ const App = () => {
       <Display name="good" counter={good} />
       <Display name="neutral" counter={neutral} />
       <Display name="bad" counter={bad} />
+      <Display name="all" counter={calcAll(good, neutral, bad)} />
+      <Display name="average" counter={calcAvg(good, neutral, bad)} />
+      <Display name="positive" counter={calcPos(good, neutral, bad)} />
     </div>
   )
 }
