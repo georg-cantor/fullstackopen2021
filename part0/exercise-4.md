@@ -9,7 +9,7 @@ When the button on the form is clicked, the browser will send the user input to 
 sequenceDiagram
     participant B AS browser
     participant S AS server
-    B->>S: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    B->>S: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note <br> with new note data in the `body` of POST request
     Note over S: server access the data sent by browser, <br>then creates a new note object, <br>and adds it to an array called notes.
     S-->>B: HTTP status code 302, which means a URL redirect.
     Note over B: browser will reload the Notes page.
