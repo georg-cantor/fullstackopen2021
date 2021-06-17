@@ -16,10 +16,10 @@ const Button = ({handleClick, text}) => {
   )
 }
 
-const Display = ({name, counter}) => {
+const Statistic = ({text, value}) => {
   return (
     <div>
-      {name} {counter}
+      {text} {value}
     </div>
   )
 }
@@ -39,12 +39,12 @@ const Statistics = ({good, neutral, bad}) => {
   
   return (
     <div>
-      <Display name="good" counter={good} />
-      <Display name="neutral" counter={neutral} />
-      <Display name="bad" counter={bad} />
-      <Display name="all" counter={calcAll(good, neutral, bad)} />
-      <Display name="average" counter={calcAvg(good, neutral, bad)} />
-      <Display name="positive" counter={calcPos(good, neutral, bad)} />
+      <Statistic text="good" value={good} />
+      <Statistic text="neutral" value={neutral} />
+      <Statistic text="bad" value={bad} />
+      <Statistic text="all" value={calcAll(good, neutral, bad)} />
+      <Statistic text="average" value={calcAvg(good, neutral, bad)} />
+      <Statistic text="positive" value={calcPos(good, neutral, bad)} />
     </div>
   )
 }
@@ -78,7 +78,7 @@ const App = () => {
       { good || neutral || bad ? (
         <Statistics good={good} neutral={neutral} bad={bad} />
       ) : (
-        <Display name="No feedback given" counter="" />
+        <div>No feedback given</div>
       )}
     </div>
   )
