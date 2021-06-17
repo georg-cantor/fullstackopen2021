@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useState } from 'react'
+import React, { useState } from 'react'
 
 const Header = ({header}) => {
   return (
@@ -40,12 +40,14 @@ const Statistics = ({good, neutral, bad}) => {
   
   return (
     <table>
-      <Statistic text="good" value={good} />
-      <Statistic text="neutral" value={neutral} />
-      <Statistic text="bad" value={bad} />
-      <Statistic text="all" value={calcAll(good, neutral, bad)} />
-      <Statistic text="average" value={calcAvg(good, neutral, bad)} />
-      <Statistic text="positive" value={calcPos(good, neutral, bad)} />
+      <tbody>
+        <Statistic text="good" value={good} />
+        <Statistic text="neutral" value={neutral} />
+        <Statistic text="bad" value={bad} />
+        <Statistic text="all" value={calcAll(good, neutral, bad)} />
+        <Statistic text="average" value={calcAvg(good, neutral, bad)} />
+        <Statistic text="positive" value={calcPos(good, neutral, bad)} />
+      </tbody>
     </table>
   )
 }
