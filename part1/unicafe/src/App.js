@@ -75,7 +75,11 @@ const App = () => {
         text='bad' 
       />
       <Header header="statistics" />
-      <Statistics good={good} neutral={neutral} bad={bad} />
+      { good || neutral || bad ? (
+        <Statistics good={good} neutral={neutral} bad={bad} />
+      ) : (
+        <Display name="No feedback given" counter="" />
+      )}
     </div>
   )
 }
