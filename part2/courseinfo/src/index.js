@@ -21,6 +21,10 @@ const App = () => {
       {
         name: 'React Hooks in Action',
         exercises: 22
+      },
+      {
+        name: 'Redux',
+        exercises: 11
       }
     ]
   }
