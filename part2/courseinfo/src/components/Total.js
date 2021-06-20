@@ -4,9 +4,11 @@ const Total = ({ parts }) => {
     const reducer = (acc, current) => acc + current
     return (
       <div>
-        Total of {parts.map(part => part.exercises).reduce(reducer)} exercises
+        <strong>
+          Total of {parts.map(part => part.exercises).reduce(reducer)} exercises
+        </strong>
       </div>
     )
   }
 
-  export default Total 
+export default Total 

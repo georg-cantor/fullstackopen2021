@@ -6,4 +6,4 @@ const Part = (props) => {
     )
   }
 
-  export default Part
+export default Part
